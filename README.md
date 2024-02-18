@@ -31,18 +31,17 @@ To run this project locally, follow these steps:
 git clone https://github.com/bajkacper/projekt
 ```
 2. Navigate to the project directory.
-
-3. Install the required dependencies for Java, Spring, React, and PostgreSQL.
-4. Configure the application and set up the PostgreSQL database.
-5. Start the application using the provided instructions.
-
-```bash
-$ git clone https://github.com/bajkacper/ticket-reservation-app.git
-$ cd ticket-reservation-app
-$ # Install Java dependencies and set up the Spring environment
-$ # Install React dependencies
-$ # Set up and configure PostgreSQL database
-$ # Start the application
+```
+cd server
+```
+3. Build Gradlew
+```
+./gradlew clean build
+cd ..
+```
+4. Config docker
+```
+docker-compose up -d
 ```
 # Authors
 * [Kacper Baj](https://www.github.com/bajkacper)
