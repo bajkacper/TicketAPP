@@ -1,0 +1,39 @@
+version: '3.6'
+services:
+  db:
+    container_name: db
+    image: postgres:alpine
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root 
+      POSTGRES_DB: ticketapp 
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: always
+
+  backend:
+    restart: always
+    container_name: backend
+    build: ./server
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/ticketapp
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root 
+
+  frontend:
+    restart: always
+    container_name: frontend
+    build: ./frontend
+    depends_on:
+      - backend
+  
+  server:
+    image: nginx:alpine
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
