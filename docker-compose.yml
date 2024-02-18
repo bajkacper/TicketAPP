@@ -25,7 +25,7 @@ services:
   frontend:
     restart: always
     container_name: frontend
-    build: ./frontend
+    build: ./front
     depends_on:
       - backend
   
