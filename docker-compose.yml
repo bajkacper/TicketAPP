@@ -9,6 +9,8 @@ services:
       POSTGRES_DB: ticketapp 
     volumes:
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
     restart: always
 
   backend:
@@ -21,14 +23,16 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/ticketapp
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root 
-
+    ports:
+      - "8080:8080"
   frontend:
     restart: always
     container_name: frontend
     build: ./front
     depends_on:
       - backend
-  
+    ports:
+      - "3000:3000"
   server:
     image: nginx:alpine
     volumes:

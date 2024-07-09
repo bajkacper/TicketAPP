@@ -7,8 +7,8 @@ public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
-    private String username;
-    private String email;
+    private String username;//todo make unique
+    private String email;//todo make unique
     private String password;
     @Enumerated(EnumType.STRING)
     private UserTypes userType;
