@@ -24,13 +24,13 @@ public class AdminService {
     }
     public Users putUser(Long id, Users userDetails) {
         return userRepository.findById(id).map(user -> {
-            user.setUsername(userDetails.getUsername());
+            user.setUserName(userDetails.getUserName());
             user.setEmail(userDetails.getEmail());
             user.setPassword(userDetails.getPassword());
             user.setUserType(userDetails.getUserType());
             return userRepository.save(user);
         }).orElseGet(() -> {
-            userDetails.setUserId(id);
+            userDetails.setId(id);
             return userRepository.save(userDetails);
         });
     }

@@ -1,62 +1,39 @@
 package com.service.TicketApp.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "USERS")
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
-    private String username;//todo make unique
-    private String email;//todo make unique
+    private Long id;
+
+    @Column(name = "userName", nullable = false, length = 45)
+    private String userName;
+
+    @Column(name = "email", nullable = false, unique = true, length = 45)
+    private String email;
+
+    @Column(name = "lastName", nullable = false, length = 45)
+    private String lastName;
+
+    @Column(name = "password", nullable = false, length = 45)
     private String password;
+
+    @Column(name = "userType", nullable = false, length = 10)
     @Enumerated(EnumType.STRING)
     private UserTypes userType;
 
-    public Users(){}
-    public Users(Long userId, String username, String email, String password, UserTypes userType) {
-        this.userId = userId;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.userType = userType;
-    }
+    @Column(name = "activated", nullable = false)
+    private Boolean activated;
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public UserTypes getUserType() {
-        return userType;
-    }
-
-    public void setUserType(UserTypes userType) {
-        this.userType = userType;
-    }
-
-    public Long getUserId(){
-        return userId;
-    }
-    public void setUserId(Long id){
-        this.userId = userId;
-    }
-    public String getUsername(){
-        return username;
-    }
-    public void setUsername(String username){
-        this.username=username;
-    }
-
+    @Column(name = "verification", nullable = false, length = 45)
+    private String verification;
 }

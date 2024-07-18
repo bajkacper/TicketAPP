@@ -16,14 +16,14 @@ public class DataLoader implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         Users admin = new Users();
-        admin.setUsername("adminUser");
+        admin.setUserName("adminUser");
         admin.setEmail("admin@example.com");
         admin.setPassword("password");
         admin.setUserType(UserTypes.ADMIN);
         userRepository.save(admin);
 
         Users customer = new Users();
-        customer.setUsername("customerUser");
+        customer.setUserName("customerUser");
         customer.setEmail("customer@example.com");
         customer.setPassword("password");
         customer.setUserType(UserTypes.CUSTOMER);
