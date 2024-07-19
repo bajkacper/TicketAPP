@@ -27,12 +27,12 @@ public class Users {
     @Column(name = "password", nullable = false, length = 45)
     private String password;
 
-    @Column(name = "userType", nullable = false, length = 10)
     @Enumerated(EnumType.STRING)
+    @Column(name = "userType", nullable = false, length = 10)
     private UserTypes userType;
 
     @Column(name = "activated", nullable = false)
-    private Boolean activated;
+    private Boolean activated = false;
 
     @Column(name = "verification", nullable = false, length = 45)
     private String verification;

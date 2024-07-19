@@ -1,10 +1,9 @@
-package com.service.TicketApp.services;
+package com.service.TicketApp.service;
 
 import com.service.TicketApp.entity.Users;
-import com.service.TicketApp.repositories.UserRepository;
+import com.service.TicketApp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Optional;

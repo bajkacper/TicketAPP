@@ -1,7 +1,7 @@
-package com.service.TicketApp.controllers;
+package com.service.TicketApp.controller;
 
 import com.service.TicketApp.entity.Users;
-import com.service.TicketApp.services.AdminService;
+import com.service.TicketApp.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
